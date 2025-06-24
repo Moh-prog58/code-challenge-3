@@ -111,18 +111,18 @@
     }
 
     function handlePostClick(id) {
-      fetch(\`\${BASE_URL}/\${id}\`)
+      fetch(`${BASE_URL}/${id}`)
         .then(res => res.json())
         .then(post => {
           currentPostId = post.id;
           const detail = document.getElementById('post-detail');
-          detail.innerHTML = \`
-            <h2>\${post.title}</h2>
-            <p><strong>By:</strong> \${post.author}</p>
-            <p>\${post.content}</p>
+          detail.innerHTML = `
+            <h2>${post.title}</h2>
+            <p><strong>By:</strong> ${post.author}</p>
+            <p>${post.content}</p>
             <button id="edit-btn">Edit</button>
             <button id="delete-btn">Delete</button>
-          \`;
+          `;
 
           document.getElementById('edit-btn').addEventListener('click', () => {
             document.getElementById('edit-post-form').classList.remove('hidden');
@@ -131,7 +131,7 @@
           });
 
           document.getElementById('delete-btn').addEventListener('click', () => {
-            fetch(\`\${BASE_URL}/\${id}\`, { method: 'DELETE' })
+            fetch(`${BASE_URL}/${id}`, { method: 'DELETE' })
               .then(() => {
                 displayPosts();
                 document.getElementById('post-detail').innerHTML = '<p>Post deleted</p>';
@@ -173,7 +173,7 @@
         const title = document.getElementById('edit-title').value;
         const content = document.getElementById('edit-content').value;
 
-        fetch(\`\${BASE_URL}/\${currentPostId}\`, {
+        fetch(`${BASE_URL}/${currentPostId}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ title, content })
