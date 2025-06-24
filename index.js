@@ -49,7 +49,7 @@ function handlePostClick(id) {
         fetch(`${BASE_URL}/${id}`, { method: 'DELETE' })
           .then(() => {
             displayPosts();
-            document.getElementById('post-detail').innerHTML = `<p>Post deleted</p>`;
+            document.getElementById('post-detail').innerHTML = '<p>Post deleted</p>';
           });
       });
     });
@@ -59,7 +59,6 @@ function addNewPostListener() {
   const form = document.getElementById('new-post-form');
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-
     const title = document.getElementById('new-title').value;
     const content = document.getElementById('new-content').value;
     const author = document.getElementById('new-author').value;
@@ -72,7 +71,7 @@ function addNewPostListener() {
       body: JSON.stringify(postObj)
     })
       .then(res => res.json())
-      .then(newPost => {
+      .then(() => {
         displayPosts();
         form.reset();
       });
@@ -94,7 +93,7 @@ function addEditPostListener() {
       body: JSON.stringify({ title, content })
     })
       .then(res => res.json())
-      .then(updatedPost => {
+      .then(() => {
         displayPosts();
         handlePostClick(currentPostId);
         editForm.classList.add('hidden');
