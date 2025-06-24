@@ -2,16 +2,15 @@
   "posts": [
     {
       "id": 1,
-      "title": "My First Blog Post",
-      "content": "This is the content of the first post.",
+      "title": "Welcome to My Blog",
+      "content": "This is the first post content.",
       "author": "Amos"
     },
     {
       "id": 2,
-      "title": "Another Day",
-      "content": "Here are some thoughts for today...",
+      "title": "Second Post",
+      "content": "Here's another blog post.",
       "author": "Jane"
     }
   ]
 }
-
